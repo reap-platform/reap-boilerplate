@@ -1,6 +1,6 @@
 spring:
   application:
-    name: reap-boilerplate
+    name: <%=metadata.artifactId%>
   cloud:
     config:
       enabled: false

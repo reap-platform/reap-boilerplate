@@ -1,5 +1,5 @@
 import request from '../utils/request'
 
 export function hello (name) {
-  return request(`/apis/reap-boilerplate/hello/${name}`, { method: 'GET' })
+  return request(`/apis/<%=metadata.artifactId%>/hello/${name}`, { method: 'GET' })
 }

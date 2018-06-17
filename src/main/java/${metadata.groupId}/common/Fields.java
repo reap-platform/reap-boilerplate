@@ -21,40 +21,13 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package org.reap;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+package <%=metadata.groupId%>.common;
 
 /**
- * 本地 UI 调试的应用启动器（集成测试），会加载 dev profile 参数，并且允许跨域访问。
+ * 集中定义应用中的数据域.
  * 
- * @author 7cat
  * @since 1.0
  */
-@SpringBootApplication(scanBasePackages = "org.reap")
-@EnableDiscoveryClient
-public class Application {
+public final class Fields {
 
-	@Bean
-	public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurer() {
-
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("*").allowedMethods("GET", "OPTIONS", "POST", "PUT",
-						"DELETE");
-			}
-		};
-	}
-
-	public static void main(String[] args) throws Exception {
-		SpringApplication application = new SpringApplication(Application.class);
-		application.setAdditionalProfiles("dev");
-		application.run(args);
-	}
 }

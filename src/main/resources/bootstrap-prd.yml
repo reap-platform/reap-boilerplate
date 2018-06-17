@@ -1,9 +1,9 @@
 spring:  
   application: 
-    name: reap-boilerplate
+    name: <%=metadata.artifactId%>
   cloud:
     config: 
-      name: reap,reap-boilerplate
+      name: reap,<%=metadata.artifactId%>
       label: default
       discovery:
         serviceId: reap-facility

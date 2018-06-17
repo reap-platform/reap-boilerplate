@@ -1,10 +1,10 @@
 {
-  "name": "reap-boilerplate-ui",
+  "name": "<%=metadata.artifactId%>-ui",
   "version": "1.0.0-SNAPSHOT",
-  "description": "Reap Boilerplate UI",
+  "description": "<%= metadata.artifactId %> UI",
   "private": true,
   "apidoc": {
-    "name": "Reap Boilerplate API",
+    "name": "<%= metadata.artifactId %> API",
     "description": "",
     "version": "1.0.0-SNAPSHOT"
   },

@@ -1,6 +1,6 @@
 server:
   servlet:
-    context-path: /apis/reap-boilerplate
+    context-path: /apis/<%=metadata.artifactId%>
 spring:
   jpa: 
     hibernate:

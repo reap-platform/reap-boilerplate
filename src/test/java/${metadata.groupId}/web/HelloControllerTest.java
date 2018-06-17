@@ -21,13 +21,30 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package org.reap.boilerplate.common;
+package <%=metadata.groupId%>.web;
+
+import org.junit.Test;
+import <%=metadata.groupId%>.test.BaseTest;
+import org.reap.support.Result;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import static org.junit.Assert.*;
 
 /**
- * 集中定义应用中的常量
- * 
  * @since 1.0
  */
-public final class Constants {
+public class HelloControllerTest extends BaseTest {
 
+	@Autowired
+	private HelloController helloController;
+
+	/**
+	 * Test method for {@link org.reap.boilerplate.web.HelloController#hello(java.lang.String)}.
+	 */
+	@Test
+	public void testHello() {
+		Result<String> result = helloController.hello("REAP");
+		assertTrue(result.isSuccess());
+		assertEquals("Hello REAP!", result.getPayload());
+	}
 }

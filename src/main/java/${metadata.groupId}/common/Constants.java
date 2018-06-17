@@ -21,19 +21,13 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package org.reap.boilerplate;
+package <%=metadata.groupId%>.common;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+/**
+ * 集中定义应用中的常量
+ * 
+ * @since 1.0
+ */
+public final class Constants {
 
-@SpringBootApplication(scanBasePackages = {"org.reap"})
-@EnableDiscoveryClient
-public class Application {
-
-	public static void main(String[] args) throws Exception {
-		SpringApplication application = new SpringApplication(Application.class);
-		application.setAdditionalProfiles("prd");
-		application.run(args);
-	}
 }

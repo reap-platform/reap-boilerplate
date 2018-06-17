@@ -21,13 +21,19 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package org.reap.boilerplate.common;
+package <%=metadata.groupId%>;
 
-/**
- * 集中定义应用中的数据域.
- * 
- * @since 1.0
- */
-public final class Fields {
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
+@SpringBootApplication(scanBasePackages = {"org.reap", "<%=metadata.groupId%>"})
+@EnableDiscoveryClient
+public class Application {
+
+	public static void main(String[] args) throws Exception {
+		SpringApplication application = new SpringApplication(Application.class);
+		application.setAdditionalProfiles("prd");
+		application.run(args);
+	}
 }
