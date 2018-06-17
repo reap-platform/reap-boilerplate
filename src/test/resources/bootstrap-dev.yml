@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: reap-boilerplate
+  cloud:
+    config:
+      enabled: false
+eureka: 
+  client:
+    enabled: false

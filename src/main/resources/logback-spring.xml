@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<springProfile name="dev">
+		<include
+			resource="org/springframework/boot/logging/logback/base.xml" />
+		<root level="INFO">
+			<appender-ref ref="CONSOLE" />
+		</root>
+	</springProfile>
+
+	<springProfile name="prd">
+		<include
+			resource="org/springframework/boot/logging/logback/base.xml" />
+		<root level="INFO">
+			<appender-ref ref="FILE" />
+		</root>
+	</springProfile>
+</configuration>
