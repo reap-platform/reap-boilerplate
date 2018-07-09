@@ -36,8 +36,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 <% if( metadata.groupId=== 'org.reap') {%>
 @SpringBootApplication(scanBasePackages = "org.reap")
 <% } else {%>
-@SpringBootApplication(scanBasePackages = { "org.reap", "<%=metadata.groupId%>" })
-<% }%>
+@SpringBootApplication(scanBasePackages = { "org.reap", "<%=metadata.groupId%>" })<% }%>
 @EnableDiscoveryClient
 public class TestApplication {
 
