@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package <%=metadata.groupId%>.test;
+package <%=metadata.groupId%>;
 
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

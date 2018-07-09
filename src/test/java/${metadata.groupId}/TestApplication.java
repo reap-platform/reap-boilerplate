@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package <%=metadata.groupId%>.test;
+package <%=metadata.groupId%>;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -31,14 +31,15 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * 本地 UI 调试的应用启动器（集成测试），会加载 dev profile 参数，并且允许跨域访问�??
- * 
- * @author 7cat
- * @since 1.0
+ * 本地 UI 调试的应用启动器（集成测试），会加载 dev profile 参数，并且允许跨域访问
  */
+<% if( metadata.groupId=== 'org.reap') {%>
 @SpringBootApplication(scanBasePackages = "org.reap")
+<% } else {%>
+	@SpringBootApplication(scanBasePackages = { "org.reap", "<%=metadata.groupId%>" })
+<% }%>
 @EnableDiscoveryClient
-public class Application {
+public class TestApplication {
 
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
@@ -53,7 +54,7 @@ public class Application {
 	}
 
 	public static void main(String[] args) throws Exception {
-		SpringApplication application = new SpringApplication(Application.class);
+		SpringApplication application = new SpringApplication(TestApplication.class);
 		application.setAdditionalProfiles("dev");
 		application.run(args);
 	}

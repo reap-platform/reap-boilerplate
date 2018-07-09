@@ -24,7 +24,7 @@
 package <%=metadata.groupId%>.web;
 
 import org.junit.Test;
-import <%=metadata.groupId%>.test.BaseTest;
+import <%=metadata.groupId%>.BaseTest;
 import org.reap.support.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 

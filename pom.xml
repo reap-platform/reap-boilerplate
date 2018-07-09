@@ -51,6 +51,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -126,14 +127,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<repositories>
-        <repository>
-            <id>reap-maven-repository</id>
-            <url>https://raw.github.com/reap-platform/reap-maven-repository/master/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
 </project>
