@@ -1,6 +1,6 @@
 
 import feedback from '../utils/feedback'
-import { hello } from '../apis'
+import { hello } from '../apis/Hello'
 
 const { notification: { error } } = feedback
 

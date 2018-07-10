@@ -1,7 +1,8 @@
 {
-  "name": "<%=metadata.artifactId%>-ui",
+  "name": "<%=metadata.artifactId%>",
   "version": "1.0.0-SNAPSHOT",
   "description": "<%= metadata.artifactId %> UI",
+  "groupId":"<%=metadata.groupId%>",
   "private": true,
   "apidoc": {
     "name": "<%= metadata.artifactId %> API",

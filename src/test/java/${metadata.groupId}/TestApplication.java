@@ -34,8 +34,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * 本地 UI 调试的应用启动器（集成测试），会加载 dev profile 参数，并且允许跨域访问
  */
 <% if( metadata.groupId=== 'org.reap') {%>
-@SpringBootApplication(scanBasePackages = "org.reap")
-<% } else {%>
+@SpringBootApplication(scanBasePackages = "org.reap")<% } else {%>
 @SpringBootApplication(scanBasePackages = { "org.reap", "<%=metadata.groupId%>" })<% }%>
 @EnableDiscoveryClient
 public class TestApplication {
