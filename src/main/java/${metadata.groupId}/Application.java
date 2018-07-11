@@ -27,7 +27,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-@SpringBootApplication(scanBasePackages = {"org.reap", "<%=metadata.groupId%>"})
+<% if( metadata.groupId=== 'org.reap') {%>
+@SpringBootApplication(scanBasePackages = "org.reap")<% } else {%>
+@SpringBootApplication(scanBasePackages = { "org.reap", "<%=metadata.groupId%>" })<% }%>
 @EnableDiscoveryClient
 public class Application {
 
