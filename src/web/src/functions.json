@@ -1,3 +1,3 @@
 [
-  { "code": "REAPBO0001",  "description": "示例功能码" }
+  { "code": "REAPBO0001", "name": "example", "description": "示例功能码" }
 ]

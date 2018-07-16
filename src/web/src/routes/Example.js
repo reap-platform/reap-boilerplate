@@ -27,7 +27,7 @@ const Component = ({ dispatch, form, message }) => {
           <Button onClick={() => {
               form.validateFieldsAndScroll((err, values) => {
                 if (!err) {
-                  dispatch({ type: 'REAPBO0001/hello', name: values.name })
+                  dispatch({ type: 'example/hello', name: values.name })
                 }
               })
             }}

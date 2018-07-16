@@ -6,6 +6,10 @@ import zhCN from 'antd/lib/locale-provider/zh_CN'
 import BasicLayout from './layout/BasicLayout'
 import { functions } from './config'
 
+
+String.prototype.firstUpperCase=function(){
+    return this.replace(/^\S/,function(s){return s.toUpperCase();});
+}
 function getRouterData (app) {
   const routerData = {}
   // 首先注册全量的 models 避免 connect 无法找到
@@ -20,7 +24,7 @@ function getRouterData (app) {
       model.state = {}
     }
     if (!model.namespace) {
-      model.namespace = aFunction.code
+      model.namespace = aFunction.name
     }
     if (!model.effects) {
       model.effects = {}
@@ -31,17 +35,17 @@ function getRouterData (app) {
     if (model.subscriptions && model.subscriptions.setup) {
       const { setup } = model.subscriptions
       model.subscriptions.setup = function (data) {
-        setup({ ...data, context: aFunction })
+        setup({ ...data })
       }
     }
 
     app.model(model)
   })
-  functions.forEach((aFunction) => {
+functions.forEach((aFunction) => {
     routerData[aFunction.code] = {
       // 在框架中自动 connect ，如果在功能码中有配置 connect 函数使用 功能码配置中的，否则使用默认的，默认将会根据匹配功能码下的状态以及当前功能码下的 loading 状态
       // eslint-disable-next-line
-      component: connect(aFunction.connect ? aFunction.connect : state => ({ ...state[aFunction.code], context: aFunction ,loading: state.loading.models[aFunction.code],effects: state.loading.effects }))(require(`./routes/${aFunction.name ? aFunction.name : aFunction.code}.js`)),
+      component: connect(aFunction.connect ? aFunction.connect : state => ({ ...state[aFunction.name],loading: state.loading.models[aFunction.name],effects: state.loading.effects }))(require(`./routes/${aFunction.name ? aFunction.name.firstUpperCase() : aFunction.code}.js`)),
     }
   })
   return routerData
