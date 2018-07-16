@@ -35,7 +35,7 @@ function getRouterData (app) {
     if (model.subscriptions && model.subscriptions.setup) {
       const { setup } = model.subscriptions
       model.subscriptions.setup = function (data) {
-        setup({ ...data })
+        setup({ funcCode: aFunction.code, ...data })
       }
     }
 
